@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <title>Order-System L12</title>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8">
+</head>
+<body>
+<table>
+    <tr>
+        <td>Apfelsaft</td>
+        <td>Brot</td>
+        <td>Brot: Aufstrich</td>
+        <td>Brot: belegt</td>
+    </tr>
+    <tr>
+        <td>Coca<br>Cola</td>
+        <td>Eistee</td>
+        <td>Frucade</td>
+        <td>Geschirtücher</td>
+    </tr>
+    <tr>
+        <td>Kaffeebecher</td>
+        <td>Kaffeebohnen</td>
+        <td>Käse</td>
+        <td>Ketchup</td>
+    </tr>
+    <tr>
+        <td>Kuchen</td>
+        <td>Kuchengabel</td>
+        <td>Mayonaise</td>
+        <td>Mineralwasser</td>
+    </tr>
+    <tr>
+        <td>Müllsack</td>
+        <td>Öl</td>
+        <td>Orangensaft</td>
+        <td>Pappteller</td>
+    </tr>
+    <tr>
+        <td>Pfeffer</td>
+        <td>Pommes</td>
+        <td>Pommesschale</td>
+        <td>Portionsmilch</td>
+    </tr>
+    <tr>
+        <td>Portionszucker</td>
+        <td>Salz</td>
+        <td>Schinken</td>
+        <td>Servietten</td>
+    </tr>
+    <tr>
+        <td>Teebeutel</td>
+        <td>Toastbrot</td>
+    </tr>
+</table>
+
+<script>
+    const cells = document.querySelectorAll('td');
+
+    cells.forEach(cell => {
+        cell.addEventListener('click', function() {
+            if (cell.classList.contains('empty'))
+            {
+                cell.classList.remove('empty');
+                cell.classList.add('seen');
+            }
+            else
+            {
+                if (cell.classList.contains('seen'))
+                {
+                    cell.classList.remove('seen');
+                    cell.classList.add('delivered');
+                }
+                else
+                {
+                    if (cell.classList.contains('delivered'))
+                    {
+                        cell.classList.remove('delivered');
+                        cell.classList.add('empty');
+                    }
+                    else
+                    {
+                        cell.classList.add('empty');
+                    }
+                }
+            }
+        });
+    });
+</script>
+</body>
+</html>
